@@ -1,0 +1,59 @@
+---
+
+- name: Verify if Redis is installed
+  shell: redis-cli -v
+  register: redis_exists
+  failed_when: false
+
+- name: Yum update
+  yum:
+    name: '*'
+    state: present
+  when: "'not found' in redis_exists.stderr"
+
+- name: Yum update
+  yum:
+    update_cache: yes
+  become: yes
+  when: "'not found' in redis_exists.stderr"
+
+- name: Install epel-release
+  yum:
+    name: epel-release
+    state: present
+  when: "'not found' in redis_exists.stderr"
+
+- name: Install yum-utils
+  ansible.builtin.yum:
+    name: yum-utils
+    state: present
+  when: "'not found' in redis_exists.stderr"
+
+- name: Set up Remi rpm repo
+  ansible.builtin.yum:
+    name: http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+    state: present
+  when: "'not found' in redis_exists.stderr"
+
+- name: Enable remi
+  shell: yum-config-manager --enable remi
+  become: yes
+  when: "'not found' in redis_exists.stderr"
+
+- name: Install redis
+  yum:
+    name: redis
+    state: latest
+    update_cache: yes
+  become: yes
+  when: "'not found' in redis_exists.stderr"
+
+    
+- name: Start Redis service
+  service:
+    name: redis
+    state: started
+    enabled: yes
+    masked: no
+  become: yes
+  when: "'not found' in redis_exists.stderr"

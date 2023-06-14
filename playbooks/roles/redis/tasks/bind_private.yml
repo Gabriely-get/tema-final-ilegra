@@ -1,0 +1,27 @@
+---
+
+- name: Verify if Redis is installed
+  shell: hostname -i
+  register: private_ip
+  
+- name: Update Redis port
+  ansible.builtin.lineinfile:
+    path: /etc/redis/redis.conf
+    regexp: '^(^bind 127.0.0.1)'
+    line: "#bind 127.0.0.1 {{private_ip}}"
+
+- name: Verify if Redis is installed
+  shell: redis-cli ping
+  register: a
+
+- name: debug
+  ansible.builtin.debug:
+    var: a
+
+- name: Restart Redis service
+  service:
+    name: redis
+    state: restarted
+    enabled: true
+    masked: no
+  become: yes

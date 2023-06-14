@@ -1,0 +1,60 @@
+---
+
+- name: Test ec2 info
+  hosts: local
+  vars:
+    ansible_python_interpreter: /usr/bin/python
+  become: yes
+
+  tasks:
+    - name: Ensure Python3 is installed.
+      yum:
+        name: python2
+        state: present
+        update_cache: yes
+
+    - name: Install epel-release
+      yum:
+        name: epel-release
+        state: present
+
+    - name: install python2-pip
+      yum:
+        name: python2-pip
+        state: present
+
+    - name: Ensure botocore and boto3 modules are installed
+      pip:
+        name: [ "boto3", "botocore"]
+        extra_args: "--user"
+
+    - name: Get informations of created EC2 instance
+      ec2_instance_info:
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_key: "{{ aws_secret_key }}"
+        filters:
+          "tag:node": replica
+          instance-state-name: ["running"]
+      register: ec2_node_info
+
+    - name: debug
+      ansible.builtin.debug:
+        var: ec2_node_info.instances[0].network_interfaces[0].association.public_ip
+
+    - name: Comment bind in redis.conf
+      ansible.builtin.lineinfile:
+        path: /etc/redis/redis.conf
+        regexp: '^(^bind 127.0.0.1)'
+        line: "#bind 127.0.0.1 -::1"
+
+    - name: Set password in redis.conf
+      ansible.builtin.lineinfile:
+        path: /etc/redis/redis.conf
+        regexp: '^(^# requirepass)'
+        line: "{{requirepassmain}}"
+
+    - name: Appendonly yes in redis.conf
+      ansible.builtin.lineinfile:
+        path: /etc/redis/redis.conf
+        regexp: '^(^appendonly no)'
+        line: appendonly yes

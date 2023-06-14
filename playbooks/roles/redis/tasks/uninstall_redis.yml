@@ -1,0 +1,28 @@
+---
+
+- name: Verify if Redis is installed
+  shell: redis-cli -v
+  register: redis_exists
+  failed_when: false
+
+- name: Uninstall redis
+  ansible.builtin.dnf:
+    name: redis-server
+    state: absent
+    purge: true
+    allow_change_held_packages: true
+
+- name: Purge redis
+  ansible.builtin.dnf:
+    name: redis
+    state: absent
+    purge: true
+    force: yes
+
+- name: Remove dependencies that are no longer required
+  dnf:
+    autoremove: yes
+
+- name: Remove useless packages from the cache
+  ansible.builtin.dnf:
+    autoclean: yes
