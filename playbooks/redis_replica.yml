@@ -1,60 +1,57 @@
 ---
 
-- name: Test ec2 info
+- name: Edit Redis Replica config file
   hosts: local
-  vars:
-    ansible_python_interpreter: /usr/bin/python
   become: yes
 
   tasks:
-    - name: Ensure Python3 is installed.
-      yum:
-        name: python2
-        state: present
-        update_cache: yes
-
-    - name: Install epel-release
-      yum:
-        name: epel-release
-        state: present
-
-    - name: install python2-pip
-      yum:
-        name: python2-pip
-        state: present
-
     - name: Ensure botocore and boto3 modules are installed
       pip:
         name: [ "boto3", "botocore"]
-        extra_args: "--user"
 
     - name: Get informations of created EC2 instance
-      ec2_instance_info:
-        aws_access_key: "{{ aws_access_key }}"
-        aws_secret_key: "{{ aws_secret_key }}"
+      amazon.aws.ec2_instance_info:
+        access_key: "{{ aws_access_key }}"
+        secret_key: "{{ aws_secret_key }}"
+        session_token: "{{ aws_session_token }}"
+        region: "{{ aws_region }}"
         filters:
-          "tag:node": replica
+          "tag:node": main
           instance-state-name: ["running"]
       register: ec2_node_info
 
-    - name: debug
-      ansible.builtin.debug:
-        var: ec2_node_info.instances[0].network_interfaces[0].association.public_ip
-
-    - name: Comment bind in redis.conf
+    - name: Comment bind in redis.conf file
       ansible.builtin.lineinfile:
         path: /etc/redis/redis.conf
         regexp: '^(^bind 127.0.0.1)'
-        line: "#bind 127.0.0.1 -::1"
+        line: "# bind 127.0.0.1 -::1"
 
-    - name: Set password in redis.conf
+    - name: Set requirepass in redis.conf file
       ansible.builtin.lineinfile:
         path: /etc/redis/redis.conf
         regexp: '^(^# requirepass)'
-        line: "{{requirepassmain}}"
+        line: requirepass "{{requirepassreplica}}"
 
-    - name: Appendonly yes in redis.conf
+    - name: Set replicaof in redis.conf file
       ansible.builtin.lineinfile:
         path: /etc/redis/redis.conf
-        regexp: '^(^appendonly no)'
-        line: appendonly yes
+        regexp: '^(^# replicaof)'
+        line: replicaof {{ec2_node_info.instances[0].network_interfaces[0].private_ip_address}} 6379
+
+    - name: Set masterauth in redis.conf file
+      ansible.builtin.lineinfile:
+        path: /etc/redis/redis.conf
+        regexp: '^(^# masterauth)'
+        line: masterauth {{ requirepassmain }}
+
+    - name: debug
+      ansible.builtin.debug:
+        var: ec2_node_info.instances[0].network_interfaces[0]
+
+    - name: Restart Redis service
+      service:
+        name: redis
+        state: restarted
+        enabled: true
+        masked: no
+      become: yes
