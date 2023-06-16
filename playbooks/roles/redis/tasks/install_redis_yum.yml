@@ -47,7 +47,6 @@
     update_cache: yes
   become: yes
   when: "'not found' in redis_exists.stderr"
-
     
 - name: Start Redis service
   service:

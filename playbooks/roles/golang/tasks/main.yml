@@ -1,4 +1,0 @@
----
-
-- name: Include Redis
-  include_tasks: install_go.yml
