@@ -45,7 +45,7 @@ build {
   provisioner "ansible" {
     extra_arguments     = [
       "--ssh-extra-args", 
-      "'-o PubkeyAcceptedKeyTypes=+ssh-rsa -o HostkeyAlgorithms=+ssh-rsa'"
+      "'-o PubkeyAcceptedKeyTypes=+ssh-rsa -o HostkeyAlgorithms=+ssh-rsa -o PasswordAuthentication=yes'"
     ]
   
     inventory_file = "inventory"
