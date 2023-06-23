@@ -1,8 +1,8 @@
 [local]
- localhost ansible_connection=local ansible_sudo_pass=ilegra ansible_password=ilegra
+ localhost ansible_connection=local
  192.168.15.76 ansible_connection=ssh ansible_user=jnekins
  192.168.15.80 ansible_connection=local ansible_user=root
 
 [defaults]
-host_key_checking = False
+ host_key_checking = False
 
