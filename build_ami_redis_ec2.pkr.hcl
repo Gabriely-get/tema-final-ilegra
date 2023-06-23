@@ -33,15 +33,22 @@ build {
     destination = "playbooks"
   }
 
+  provisioner "file" {
+    source      = "./inventory"
+    destination = "inventory"
+  }
+
   provisioner "shell" {
     script = "./install-ansible.sh"
   }
 
   provisioner "ansible" {
     extra_arguments     = [
-      "--ssh-extra-args", "'-o PubkeyAcceptedKeyTypes=+ssh-rsa -o HostkeyAlgorithms=+ssh-rsa'"
+      "--ssh-extra-args", 
+      "'-o PubkeyAcceptedKeyTypes=+ssh-rsa -o HostkeyAlgorithms=+ssh-rsa'"
     ]
   
+    inventory_file = "inventory"
     playbook_file = "playbooks/playbook.yml"
   }
 
