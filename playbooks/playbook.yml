@@ -1,6 +1,6 @@
 ---
 
-- hosts: local
+- hosts: default
   become: yes
   roles:
     - redis
