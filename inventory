@@ -1,5 +1,5 @@
 [local]
- localhost ansible_connection=local ansible_sudo_pass=jenkins ansible_password=jenkins
+ localhost ansible_connection=local ansible_sudo_pass=ilegra ansible_password=ilegra
  192.168.15.76 ansible_connection=ssh ansible_user=jnekins
  192.168.15.80 ansible_connection=local ansible_user=root
 
