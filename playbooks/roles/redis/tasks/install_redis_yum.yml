@@ -11,13 +11,13 @@
   when: "'not found' in redis_exists.stderr"
 
 - name: Install epel-release
-  yum:
+  package:
     name: epel-release
     state: present
   when: "'not found' in redis_exists.stderr"
 
 - name: Install yum-utils
-  ansible.builtin.yum:
+  package:
     name: yum-utils
     state: present
   when: "'not found' in redis_exists.stderr"
@@ -34,7 +34,7 @@
   when: "'not found' in redis_exists.stderr"
 
 - name: Install redis
-  yum:
+  package:
     name: redis
     state: latest
     update_cache: yes
