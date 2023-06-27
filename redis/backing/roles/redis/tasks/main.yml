@@ -1,0 +1,7 @@
+---
+
+- name: Include Redis
+  include_tasks: install_redis_yum.yml
+
+- name: Include Redis Config
+  include_tasks: config_redis.yml
