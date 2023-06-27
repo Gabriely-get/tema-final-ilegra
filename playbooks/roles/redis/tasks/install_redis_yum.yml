@@ -6,7 +6,7 @@
   failed_when: false
 
 - name: Yum update
-  yum:
+  package:
     update_cache: yes
   when: "'not found' in redis_exists.stderr"
 
