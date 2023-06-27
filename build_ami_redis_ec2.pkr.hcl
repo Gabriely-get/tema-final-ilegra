@@ -30,7 +30,7 @@ build {
 
   provisioner "file" {
     source      = "./playbooks"
-    destination = "playbooks"
+    destination = "/home"
   }
 
   provisioner "file" {
@@ -42,8 +42,11 @@ build {
     script = "./install-ansible.sh"
   }
 
-  provisioner "ansible-local" {
-    playbook_file = "playbooks/playbook.yml"
+  provisioner "shell" {
+    inline = [
+      "cd /home/playbooks",
+      "ansible-playbook playbook.yml"
+    ]
   }
 
 }
