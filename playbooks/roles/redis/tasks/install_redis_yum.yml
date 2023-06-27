@@ -7,14 +7,8 @@
 
 - name: Yum update
   yum:
-    name: '*'
-    state: present
-  when: "'not found' in redis_exists.stderr"
-
-- name: Yum update
-  yum:
     update_cache: yes
-  become: yes
+  become: yes 
   when: "'not found' in redis_exists.stderr"
 
 - name: Install epel-release
