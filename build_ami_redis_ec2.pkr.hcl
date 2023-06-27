@@ -42,7 +42,7 @@ build {
     script = "./install-ansible.sh"
   }
 
-  provisioner "ansible" {
+  provisioner "ansible-local" {
     playbook_file = "playbooks/playbook.yml"
   }
 
