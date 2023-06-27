@@ -48,7 +48,6 @@ build {
       "'-o PubkeyAcceptedKeyTypes=+ssh-rsa -o HostkeyAlgorithms=+ssh-rsa -o PasswordAuthentication=no'"
     ]
   
-    inventory_file = "inventory"
     playbook_file = "playbooks/playbook.yml"
   }
 
