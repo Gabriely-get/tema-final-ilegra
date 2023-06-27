@@ -12,8 +12,6 @@ source "amazon-ebs" "amazon_linux" {
   source_ami    = "ami-03c7d01cf4dedc891"
   instance_type = "t2.micro"
   region        = "us-east-1"
-  ssh_keypair_name     = "kp-jt-devops-gabriely-willian.pem"
-  ssh_private_key_file = "/home/ilegra/Downloads/kp-jt-devops-gabriely-willian.pem"
   tags = {
     Name             = "ami-redis-jt-devops"
     Owner            = "Gabriely-get"
