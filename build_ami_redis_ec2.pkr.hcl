@@ -47,7 +47,8 @@ build {
       "--ssh-extra-args", 
       "'-o PubkeyAcceptedKeyTypes=+rsa-sha2-512 -o HostkeyAlgorithms=+ssh-rsa -o PasswordAuthentication=no'"
     ]
-  
+
+    inventory_file = "inventory"
     playbook_file = "playbooks/playbook.yml"
   }
 
