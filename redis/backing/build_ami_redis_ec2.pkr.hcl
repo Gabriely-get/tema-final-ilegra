@@ -39,7 +39,7 @@ build {
   }
 
   provisioner "ansible" {
-    playbook_file = "/home/playbooks/playbook.yml"
+    playbook_file = "redis/backing/playbooks/playbook.yml"
   }
 
 }
