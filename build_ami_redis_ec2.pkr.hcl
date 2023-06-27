@@ -45,7 +45,7 @@ build {
   provisioner "ansible" {
     extra_arguments     = [
       "--ssh-extra-args", 
-      "'-o PubkeyAcceptedKeyTypes=+ssh-rsa -o HostkeyAlgorithms=+ssh-rsa -o PasswordAuthentication=no'"
+      "'-o PubkeyAcceptedKeyTypes=+rsa-sha2-512 -o HostkeyAlgorithms=+ssh-rsa -o PasswordAuthentication=no'"
     ]
   
     playbook_file = "playbooks/playbook.yml"
