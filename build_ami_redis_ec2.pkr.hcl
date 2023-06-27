@@ -42,11 +42,8 @@ build {
     script = "./install-ansible.sh"
   }
 
-  provisioner "shell" {
-    inline = [
-      "cd /home/playbooks",
-      "ansible-playbook playbook.yml"
-    ]
+  provisioner "ansible" {
+    playbook_file = "/home/playbooks/playbook.yml"
   }
 
 }
