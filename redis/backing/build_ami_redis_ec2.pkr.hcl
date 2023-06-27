@@ -29,13 +29,13 @@ build {
   ]
 
   provisioner "file" {
-    source      = "./playbooks"
+    source      = "./redis/backing/playbooks"
     destination = "playbooks"
   }
 
 
   provisioner "shell" {
-    script = "./install-ansible.sh"
+    script = "./redis/backing/install-ansible.sh"
   }
 
   provisioner "ansible" {
