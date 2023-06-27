@@ -30,7 +30,7 @@ build {
 
   provisioner "file" {
     source      = "./playbooks"
-    destination = "/home"
+    destination = "playbooks"
   }
 
   provisioner "file" {
@@ -43,7 +43,7 @@ build {
   }
 
   provisioner "ansible" {
-    playbook_file = "/home/playbooks/playbook.yml"
+    playbook_file = "playbooks/playbook.yml"
   }
 
 }
