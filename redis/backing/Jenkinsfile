@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Packer Build Image') {
             steps {
-                sh 'packer init build_ami_redis_ec2.pkr.hcl'
+                sh 'packer init redis/backing/build_ami_redis_ec2.pkr.hcl'
                 sh 'packer validate build_ami_redis_ec2.pkr.hcl'
                 sh 'packer build build_ami_redis_ec2.pkr.hcl'
             }
