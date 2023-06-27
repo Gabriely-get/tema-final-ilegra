@@ -10,29 +10,6 @@
     update_cache: yes
   when: "'not found' in redis_exists.stderr"
 
-- name: Install epel-release
-  package:
-    name: epel-release
-    state: present
-  when: "'not found' in redis_exists.stderr"
-
-- name: Install yum-utils
-  package:
-    name: yum-utils
-    state: present
-  when: "'not found' in redis_exists.stderr"
-
-- name: Set up Remi rpm repo
-  ansible.builtin.yum:
-    name: http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-    state: present
-  when: "'not found' in redis_exists.stderr"
-
-- name: Enable remi
-  shell: yum-config-manager --enable remi
-  become: yes
-  when: "'not found' in redis_exists.stderr"
-
 - name: Install redis
   package:
     name: redis
