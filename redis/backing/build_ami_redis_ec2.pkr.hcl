@@ -33,10 +33,6 @@ build {
     destination = "playbooks"
   }
 
-  provisioner "file" {
-    source      = "./inventory"
-    destination = "inventory"
-  }
 
   provisioner "shell" {
     script = "./install-ansible.sh"
