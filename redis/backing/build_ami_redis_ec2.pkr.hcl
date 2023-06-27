@@ -30,7 +30,7 @@ build {
 
   provisioner "file" {
     source      = "./redis/backing/playbooks"
-    destination = "/home/"
+    destination = "/home/redis"
   }
 
 
