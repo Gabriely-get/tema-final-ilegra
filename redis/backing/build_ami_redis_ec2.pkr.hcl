@@ -20,7 +20,7 @@ source "amazon-ebs" "amazon_linux" {
     CustomerID       = "ILEGRA"
   }
   ssh_username = "ec2-user"
-  ssh_keypair_name     = "kp-jt-devops-gabriely-willian.pem"
+  ssh_keypair_name     = "kp-jt-devops-gabriely-willian"
   ssh_private_key_file = "/home/ilegra/Downloads/kp-jt-devops-gabriely-willian.pem"
   ssh_agent_auth = true
 }
