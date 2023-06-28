@@ -30,7 +30,7 @@ build {
 
   provisioner "file" {
     source      = "./redis/backing/playbooks"
-    destination = "/home/ansible"
+    destination = "playbooks"
   }
 
 
@@ -38,11 +38,8 @@ build {
     script = "./redis/backing/install-ansible.sh"
   }
 
-  provisioner "shell" {
-    inline = [
-      "cd /home/ansible/playbooks",
-      "ansible-playbook playbook.yml"
-    ]
+  provisioner "ansible" {
+    playbook_file = "redis/backing/playbooks/playbook.yml"
   }
 
 }
