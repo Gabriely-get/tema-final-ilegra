@@ -1,9 +1,9 @@
 ---
 
  - name: Ensure logrotate is installed
-      yum:
-        name: logrotate
-        state: present
+   package:
+     name: logrotate
+     state: present
 
 - name: Verify if redis logrotate file exists
   stat:
