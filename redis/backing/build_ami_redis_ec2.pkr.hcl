@@ -39,7 +39,7 @@ build {
   }
 
   provisioner "ansible-local" {
-    playbook_file = "playbooks/playbook.yml"
+    playbook_file = "home/ec2-user/playbooks/playbook.yml"
   }
 
 }
