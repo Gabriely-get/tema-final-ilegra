@@ -20,6 +20,8 @@ source "amazon-ebs" "amazon_linux" {
     CustomerID       = "ILEGRA"
   }
   ssh_username = "ec2-user"
+  ssh_keypair_name     = "kp-jt-devops-gabriely-willian.pem"
+  ssh_private_key_file = "/home/ilegra/Downloads/kp-jt-devops-gabriely-willian.pem"
 }
 
 build {
@@ -30,7 +32,7 @@ build {
 
   provisioner "file" {
     source      = "./redis/backing/playbooks"
-    destination = "playbooks"
+    destination = "/home/ec2-user/"
   }
 
 
