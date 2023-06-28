@@ -40,8 +40,8 @@ build {
 
   provisioner "shel" {
     inline = [
-      'cd /playbooks',
-      'ansible-playbook playbook.yml'
+      "cd /playbooks",
+      "ansible-playbook playbook.yml"
     ]
   }
 
