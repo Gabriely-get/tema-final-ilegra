@@ -38,7 +38,7 @@ build {
     script = "./redis/backing/install-ansible.sh"
   }
 
-  provisioner "shel" {
+  provisioner "shell" {
     inline = [
       "cd /playbooks",
       "ansible-playbook playbook.yml"
