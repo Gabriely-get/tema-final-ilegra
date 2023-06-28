@@ -38,7 +38,7 @@ build {
     script = "./redis/backing/install-ansible.sh"
   }
 
-  provisioner "ansible" {
+  provisioner "ansible-local" {
     playbook_file = "redis/backing/playbooks/playbook.yml"
   }
 
