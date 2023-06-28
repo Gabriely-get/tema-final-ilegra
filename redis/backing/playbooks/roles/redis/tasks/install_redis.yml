@@ -1,17 +1,11 @@
 ---
 
-- name: Verify if Redis is installed
-  shell: redis-cli -v
-  register: redis_exists
-  failed_when: false
-  
 - name: Install redis
   package:
     name: redis
     state: latest
     update_cache: yes
   become: yes
-  when: "'not found' in redis_exists.stderr"
     
 - name: Start Redis service
   service:
@@ -20,4 +14,3 @@
     enabled: yes
     masked: no
   become: yes
-  when: "'not found' in redis_exists.stderr"
