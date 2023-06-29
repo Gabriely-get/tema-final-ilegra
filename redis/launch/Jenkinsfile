@@ -17,8 +17,9 @@ pipeline {
         }
         stage('Terraform Apply') {
             steps {
-                sh 'terraform apply'
-                sh 'terraform output > output.txt'
+                sh 'terraform -chdir=redis/launch init'
+                sh 'terraform -chdir=redis/launch apply  -auto-approve'
+                sh 'terraform -chdir=redis/launch output > output.txt'
             }
         }
     }
