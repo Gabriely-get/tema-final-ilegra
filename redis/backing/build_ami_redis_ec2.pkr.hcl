@@ -32,7 +32,7 @@ build {
 
   provisioner "file" {
     source      = "./redis/backing/playbooks"
-    destination = "playbooks"
+    destination = "/home/ec2-user"
   }
 
 
