@@ -10,23 +10,6 @@
     path: /etc/logrotate.d/redis
   register: logrotate_file
 
-- name: Uncomment logfile in redis.conf file
-  ansible.builtin.lineinfile:
-    path: /etc/redis/redis.conf
-    regexp: '^(^# logfile)'
-    line: logfile /var/log/redis/redis.log
-
-- name: Uncomment syslog enabled (to yes) in redis.conf file
-  ansible.builtin.lineinfile:
-    path: /etc/redis/redis.conf
-    regexp: '^(^# syslog-enabled no)'
-    line: syslog-enabled yes
-
-- name: Uncomment syslog ident (to redis) in redis.conf file
-  ansible.builtin.lineinfile:
-    path: /etc/redis/redis.conf
-    regexp: '^(^# syslog-ident)'
-    line: syslog-ident redis
 
 - name: Create Redis logrotate configuration
   copy:
