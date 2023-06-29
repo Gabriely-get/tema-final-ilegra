@@ -1,0 +1,25 @@
+---
+
+- name: Execute Redis Replica playbook in EC2
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Get informations of created EC2 instance
+      ec2_instance_info:
+        access_key: "{{ aws_access_key }}"
+        secret_key: "{{ aws_secret_key }}"
+        security_token: "{{ security_token }}"
+        region: "{{ aws_region }}"
+        filters:
+          "tag:node": node-redis
+          "tag:nodeType": replica
+          instance-state-name: ["running"]
+      register: ec2_node_info
+
+    - name: debug
+      ansible.builtin.debug:
+        var: ec2_node_info.instances[0].public_dns_name
+
+    - name: Execute playbook for replica in ec2
+      shell: ssh -i "{{ kp_full_path }}" ec2-user@{{ ec2_node_info.instances[0].public_dns_name }}  "ansible-playbook playbooks/redis_replica.yml"
