@@ -40,8 +40,11 @@ build {
     script = "./redis/backing/install-ansible.sh"
   }
 
-  provisioner "ansible-local" {
-    playbook_file = "/home/ec2-user/playbooks/playbook.yml"
+  provisioner "shell" {
+    inline = [
+      "cd /home/ec2-user/playbooks",
+      "ansible-playbook playbook.yml"
+    ]
   }
 
 }
