@@ -13,7 +13,7 @@
       ec2_instance_info:
         access_key: "{{ aws_access_key }}"
         secret_key: "{{ aws_secret_key }}"
-        security_token: "{{ aws_security_token }}"
+        security_token: "{{ security_token }}"
         region: "{{ aws_region }}"
         filters:
           "tag:node": node-redis
