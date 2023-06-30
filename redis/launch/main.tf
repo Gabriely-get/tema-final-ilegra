@@ -17,6 +17,7 @@ provider "aws" {
       EC2_ECONOMIZATOR = "TRUE"
       CustomerID       = "ILEGRA"
       node             = "node-redis"
+      Name             = "redis-instance"
     }
   }
 
