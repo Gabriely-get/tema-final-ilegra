@@ -46,7 +46,7 @@
     - name: Set replicaof in redis.conf file
       ansible.builtin.lineinfile:
         path: /etc/redis.conf
-        regexp: '^(^# replicaof)'
+        regexp: '^(^# slaveof)'
         line: replicaof {{ec2_node_info.instances[0].network_interfaces[0].private_ip_address}} 6379
 
     - name: Set masterauth in redis.conf file
