@@ -41,7 +41,7 @@
       ansible.builtin.lineinfile:
         path: /etc/redis.conf
         regexp: '^(^# requirepass)'
-        line: requirepass "{{requirepassreplica}}"
+        line: requirepass {{requirepassreplica}}
 
     - name: Set replicaof in redis.conf file
       ansible.builtin.lineinfile:
