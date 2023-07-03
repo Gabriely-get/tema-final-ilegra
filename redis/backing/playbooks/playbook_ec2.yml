@@ -22,4 +22,8 @@
         var: ec2_node_info.instances[0].public_dns_name
 
     - name: Execute playbook for replica in ec2
-      command: ssh -i "{{ kp_full_path }}" ec2-user@{{ ec2_node_info.instances[0].public_dns_name }} "ansible-playbook playbooks/redis_replica.yml -e 'aws_access_key={{ aws_access_key }}' -e 'aws_secret_key={{ aws_secret_key }}' -e 'security_token={{ security_token }}' -e 'aws_region={{ aws_region }}' -e 'requirepassmain={{ requirepassmain }}' -e 'requirepassreplica={{ requirepassreplica }}' "
+        expect:
+          command: ssh -i "{{ kp_full_path }}" ec2-user@{{ ec2_node_info.instances[0].public_dns_name }} "ansible-playbook playbooks/redis_replica.yml -e 'aws_access_key={{ aws_access_key }}' -e 'aws_secret_key={{ aws_secret_key }}' -e 'security_token={{ security_token }}' -e 'aws_region={{ aws_region }}' -e 'requirepassmain={{ requirepassmain }}' -e 'requirepassreplica={{ requirepassreplica }}' "
+          responses:
+            'Are you sure you want to continue connecting (yes/no/[fingerprint])?' : 'yes'
+        
