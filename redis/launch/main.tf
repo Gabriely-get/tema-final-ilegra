@@ -73,7 +73,7 @@ resource "aws_autoscaling_group" "redis_main" {
 
   tag {
     key                 = "nodeType"
-    value               = "master"
+    value               = "main"
     propagate_at_launch = true
   }
 
