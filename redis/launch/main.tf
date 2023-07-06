@@ -31,7 +31,7 @@ data "aws_ami" "redis-ami" {
 
   filter {
     name   = "name"
-    values = ["ami-redis-jt-devops"]
+    values = ["ami-redis-cluster"]
   }
 
 }
