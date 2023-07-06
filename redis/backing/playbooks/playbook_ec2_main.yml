@@ -1,0 +1,25 @@
+---
+
+- name: Execute Redis Replica playbook in EC2
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Get informations of created EC2 Redis main instance
+      ec2_instance_info:
+        access_key: "{{ aws_access_key }}"
+        secret_key: "{{ aws_secret_key }}"
+        security_token: "{{ security_token }}"
+        region: "{{ aws_region }}"
+        filters:
+          "tag:node": node-redis
+          "tag:nodeType": main
+          instance-state-name: ["running"]
+      register: ec2_node_info_main
+        
+    - name: Execute playbook for main in ec2
+      expect:
+        command: ssh -i "{{ kp_full_path }}" ec2-user@{{ ec2_node_info_main.instances[0].public_dns_name }} "ansible-playbook playbooks/redis_main.yml -e 'aws_access_key={{ aws_access_key }}' -e 'aws_secret_key={{ aws_secret_key }}' -e 'security_token={{ security_token }}' -e 'aws_region={{ aws_region }}' -e 'requirepassmain={{ requirepassmain }}' "
+        responses:
+          'Are you sure you want to continue connecting (yes/no/[fingerprint])?' : 'yes'
+    
