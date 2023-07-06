@@ -17,7 +17,7 @@ resource "aws_lb_target_group" "redis-6379" {
   health_check {
     enabled             = true
     interval            = 30
-    port                = "traffic-port"
+    port                = 6379
     healthy_threshold   = 3
     unhealthy_threshold = 3
     timeout             = 6
