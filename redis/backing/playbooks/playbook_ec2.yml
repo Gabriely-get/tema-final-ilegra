@@ -33,9 +33,9 @@
       ansible.builtin.debug:
         var: ec2_node_info_rep.instances[0].public_dns_name
 
-    - name: Execute playbook for main in ec2
+    - name: Execute playbook for replica in ec2
       expect:
-        command: ssh -i "{{ kp_full_path }}" ec2-user@{{ ec2_node_info_main.instances[0].public_dns_name }} "ansible-playbook playbooks/redis_main.yml -e 'aws_access_key={{ aws_access_key }}' -e 'aws_secret_key={{ aws_secret_key }}' -e 'security_token={{ security_token }}' -e 'aws_region={{ aws_region }}' -e 'requirepassmain={{ requirepassmain }}'' "
+        command: ssh -i "{{ kp_full_path }}" ec2-user@{{ ec2_node_info_rep.instances[0].public_dns_name }} "ansible-playbook playbooks/redis_replica.yml -e 'aws_access_key={{ aws_access_key }}' -e 'aws_secret_key={{ aws_secret_key }}' -e 'security_token={{ security_token }}' -e 'aws_region={{ aws_region }}' -e 'requirepassmain={{ requirepassmain }}' -e 'requirepassreplica={{ requirepassreplica }}' "
         responses:
           'Are you sure you want to continue connecting (yes/no/[fingerprint])?' : 'yes'
 
@@ -43,8 +43,9 @@
       pause:
         seconds: 50
         
-    - name: Execute playbook for replica in ec2
+    - name: Execute playbook for main in ec2
       expect:
-        command: ssh -i "{{ kp_full_path }}" ec2-user@{{ ec2_node_info_rep.instances[0].public_dns_name }} "ansible-playbook playbooks/redis_replica.yml -e 'aws_access_key={{ aws_access_key }}' -e 'aws_secret_key={{ aws_secret_key }}' -e 'security_token={{ security_token }}' -e 'aws_region={{ aws_region }}' -e 'requirepassmain={{ requirepassmain }}' -e 'requirepassreplica={{ requirepassreplica }}' "
+        command: ssh -i "{{ kp_full_path }}" ec2-user@{{ ec2_node_info_main.instances[0].public_dns_name }} "ansible-playbook playbooks/redis_main.yml -e 'aws_access_key={{ aws_access_key }}' -e 'aws_secret_key={{ aws_secret_key }}' -e 'security_token={{ security_token }}' -e 'aws_region={{ aws_region }}' -e 'requirepassmain={{ requirepassmain }}'' "
         responses:
           'Are you sure you want to continue connecting (yes/no/[fingerprint])?' : 'yes'
+    
