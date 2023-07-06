@@ -47,17 +47,13 @@
       ansible.builtin.lineinfile:
         path: /etc/redis.conf
         regexp: '^(^# slaveof)'
-        line: replicaof {{ec2_node_info.instances[0].network_interfaces[0].private_ip_address}} 6379
+        line: slaveof {{ec2_node_info.instances[0].network_interfaces[0].private_ip_address}} 6379
 
     - name: Set masterauth in redis.conf file
       ansible.builtin.lineinfile:
         path: /etc/redis.conf
         regexp: '^(^# masterauth)'
         line: masterauth {{ requirepassmain }}
-
-    - name: debug
-      ansible.builtin.debug:
-        var: ec2_node_info.instances[0].network_interfaces[0]
 
     - name: Restart Redis service
       service:
