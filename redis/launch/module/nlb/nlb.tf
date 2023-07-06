@@ -18,7 +18,6 @@ resource "aws_lb_target_group" "redis-6379" {
     enabled             = true
     interval            = 30
     port                = 6379
-    protocol            = "TCP"
     healthy_threshold   = 3
     unhealthy_threshold = 3
     timeout             = 6
