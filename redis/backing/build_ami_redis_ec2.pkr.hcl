@@ -8,12 +8,12 @@ packer {
 }
 
 source "amazon-ebs" "amazon_linux" {
-  ami_name      = "ami-redis-jt-devops"
+  ami_name      = "ami-redis-cluster"
   source_ami    = "ami-03c7d01cf4dedc891"
   instance_type = "t2.micro"
   region        = "us-east-1"
   tags = {
-    Name             = "ami-redis-jt-devops"
+    Name             = "ami-redis-cluster"
     Owner            = "Gabriely-get"
     Project          = "tema-final"
     EC2_ECONOMIZATOR = "TRUE"
