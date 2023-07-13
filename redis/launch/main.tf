@@ -118,11 +118,6 @@ resource "aws_autoscaling_attachment" "asg_main_attachment_nlb" {
   lb_target_group_arn    = module.moduleNLB.tg_group_arn
 }
 
-resource "aws_autoscaling_attachment" "asg_replica_attachment_nlb" {
-  autoscaling_group_name = aws_autoscaling_group.redis_replica.name
-  lb_target_group_arn    = module.moduleNLB.tg_group_arn
-}
-
 locals {
   instances = data.aws_instances.redis_instances.ids
 }
