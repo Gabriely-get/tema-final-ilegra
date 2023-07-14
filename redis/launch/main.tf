@@ -16,8 +16,6 @@ provider "aws" {
       Project          = "tema-final"
       EC2_ECONOMIZATOR = "TRUE"
       CustomerID       = "ILEGRA"
-      node             = "node-redis"
-      Name             = "redis-instance"
     }
   }
 
@@ -76,6 +74,16 @@ resource "aws_autoscaling_group" "redis_main" {
     value               = "main"
     propagate_at_launch = true
   }
+  tag {
+    key                 = "node"
+    value               = "node-redis"
+    propagate_at_launch = true
+  }
+  tag {
+    key                 = "Name"
+    value               = "redis-instance"
+    propagate_at_launch = true
+  }
 
 }
 
@@ -104,6 +112,16 @@ resource "aws_autoscaling_group" "redis_replica" {
   tag {
     key                 = "nodeType"
     value               = "replica"
+    propagate_at_launch = true
+  }
+  tag {
+    key                 = "node"
+    value               = "node-redis"
+    propagate_at_launch = true
+  }
+  tag {
+    key                 = "Name"
+    value               = "redis-instance"
     propagate_at_launch = true
   }
 
