@@ -18,7 +18,7 @@
 
 - name: Create environment file
   copy:
-    dest: "local.env"
+    dest: "/home/ec2-user/app/local.env"
     content: |
       LB_URL={{ elb_info.load_balancers[0].dns_name }}
       PASS={{ requirepass }}
