@@ -1,4 +1,5 @@
 ---
+
 - name: install python2-pip
   yum:
     name: python2-pip
