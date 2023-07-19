@@ -18,7 +18,7 @@
         
     - name: Execute playbook for main in ec2
       expect:
-        command: ssh -i "{{ kp_full_path }}" ec2-user@{{ item.public_dns_name }} "ansible-playbook playbooks/playbook_ec2.yml -e 'aws_access_key={{ aws_access_key }}' -e 'aws_secret_key={{ aws_secret_key }}' -e 'security_token={{ security_token }}' -e 'aws_region={{ aws_region }}' "
+        command: ssh -i "{{ kp_full_path }}" ec2-user@{{ item.public_dns_name }} "ansible-playbook playbooks/playbook_ec2.yml -e 'aws_access_key={{ aws_access_key }}' -e 'aws_secret_key={{ aws_secret_key }}' -e 'security_token={{ security_token }}' -e 'aws_region={{ aws_region }}' -e 'requirepass={{ requirepass }}' "
         responses:
           'Are you sure you want to continue connecting (yes/no/[fingerprint])?' : 'yes'
       loop: "{{ ec2_node_info_main.instances }}"
