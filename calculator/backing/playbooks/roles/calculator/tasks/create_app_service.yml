@@ -2,7 +2,7 @@
 
 - name: Creating file zookeper service
   copy:
-    dest: "calc.service"
+    dest: "/lib/systemd/system/calc.service"
     content: |
       [Unit]
       Description=Calculator go application
