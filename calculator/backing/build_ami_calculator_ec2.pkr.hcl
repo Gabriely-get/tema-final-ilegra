@@ -31,17 +31,17 @@ build {
   ]
 
   provisioner "file" {
-    source      = "./playbooks"
+    source      = "./calculator/backing/playbooks"
     destination = "/home/ec2-user/playbooks"
   }
   
   provisioner "file" {
-    source      = "./app"
+    source      = "./calculator/backing/app"
     destination = "/home/ec2-user/app"
   }
 
   provisioner "shell" {
-    script = "./install-ansible.sh"
+    script = "./calculator/backing/install-ansible.sh"
   }
 
   provisioner "ansible" {
@@ -49,7 +49,7 @@ build {
       "--ssh-extra-args", "'-o PubkeyAcceptedKeyTypes=+ssh-rsa -o HostkeyAlgorithms=+ssh-rsa'"
     ]
   
-    playbook_file = "playbooks/playbook.yml"
+    playbook_file = "/home/ec2-user/playbooks/playbook.yml"
   }
 
 
