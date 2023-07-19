@@ -22,4 +22,8 @@
         responses:
           'Are you sure you want to continue connecting (yes/no/[fingerprint])?' : 'yes'
       loop: "{{ ec2_node_info_main.instances }}"
-    
+
+    - name: Start Calculator in ec2
+        command: ssh -i "{{ kp_full_path }}" ec2-user@{{ item.public_dns_name }} "cd app && go run ."
+        responses:
+      loop: "{{ ec2_node_info_main.instances }}"
