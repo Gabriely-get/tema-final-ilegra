@@ -1,5 +1,14 @@
 ---
-
+- name: install python2-pip
+  yum:
+    name: python2-pip
+    state: present
+    
+- name: Upgrade pip
+  pip: name=pip state=latest
+  tags:
+    - packages
+        
 - name: Ensure botocore and boto3 modules are installed
   pip:
     name: [ "boto3", "botocore"]
