@@ -1,0 +1,4 @@
+---
+
+- name: Include Go
+  include_tasks: install_go.yml

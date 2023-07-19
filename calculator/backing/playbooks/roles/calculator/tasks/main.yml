@@ -1,0 +1,7 @@
+---
+
+- name: Include Env File
+  include_tasks: create_env_file.yml
+
+- name: Include App Service
+  include_tasks: create_app_service.yml

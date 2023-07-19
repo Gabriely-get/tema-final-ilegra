@@ -1,0 +1,442 @@
+INFO: 2023/05/25 14:19:08 log-service.go:32: Application started. Running at port 8000
+ERROR: 2023/05/25 14:19:25 log-service.go:52: Database error: err: dial tcp 54.85.99.104:6379: i/o timeout
+WARN: 2023/05/25 14:19:25 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 54.85.99.104:6379: i/o timeout
+ERROR: 2023/05/25 14:24:27 log-service.go:52: Database error: err: DENIED Redis is running in protected mode because protected mode is enabled and no password is set for the default user. In this mode connections are only accepted from the loopback interface. If you want to connect from external computers to Redis you may adopt one of the following solutions: 1) Just disable protected mode sending the command 'CONFIG SET protected-mode no' from the loopback interface by connecting to Redis from the same host the server is running, however MAKE SURE Redis is not publicly accessible from internet if you do so. Use CONFIG REWRITE to make this change permanent. 2) Alternatively you can just disable the protected mode by editing the Redis configuration file, and setting the protected mode option to 'no', and then restarting the server. 3) If you started the server manually just for testing, restart it with the '--protected-mode no' option. 4) Setup a an authentication password for the default user. NOTE: You only need to do one of the above things in order for the server to start accepting connections from the outside.
+WARN: 2023/05/25 14:24:27 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: DENIED Redis is running in protected mode because protected mode is enabled and no password is set for the default user. In this mode connections are only accepted from the loopback interface. If you want to connect from external computers to Redis you may adopt one of the following solutions: 1) Just disable protected mode sending the command 'CONFIG SET protected-mode no' from the loopback interface by connecting to Redis from the same host the server is running, however MAKE SURE Redis is not publicly accessible from internet if you do so. Use CONFIG REWRITE to make this change permanent. 2) Alternatively you can just disable the protected mode by editing the Redis configuration file, and setting the protected mode option to 'no', and then restarting the server. 3) If you started the server manually just for testing, restart it with the '--protected-mode no' option. 4) Setup a an authentication password for the default user. NOTE: You only need to do one of the above things in order for the server to start accepting connections from the outside.
+INFO: 2023/05/25 14:26:16 log-service.go:32: GET 200 localhost:8000/calc/historic  
+INFO: 2023/05/25 21:01:55 log-service.go:32: Application started. Running at port 8000
+ERROR: 2023/05/25 21:02:25 log-service.go:52: Database error: err: dial tcp 54.85.99.104:6379: i/o timeout
+WARN: 2023/05/25 21:02:25 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 54.85.99.104:6379: i/o timeout
+INFO: 2023/05/25 21:03:06 log-service.go:32: GET 200 localhost:8000/calc/historic  
+INFO: 2023/05/25 21:03:09 log-service.go:32: GET 200 localhost:8000/calc/historic  
+INFO: 2023/05/25 23:05:31 log-service.go:32: Application started. Running at port 8000
+ERROR: 2023/05/25 23:05:44 log-service.go:52: Database error: err: ERR SELECT is not allowed in cluster mode
+WARN: 2023/05/25 23:05:44 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: ERR SELECT is not allowed in cluster mode
+WARN: 2023/05/25 23:06:54 log-service.go:42: GET 400 localhost:8000/calc/sum/09/67868 An error occurred on save calculator historic: ERR SELECT is not allowed in cluster mode
+INFO: 2023/05/25 23:06:54 log-service.go:32: GET 200 localhost:8000/calc/sum/09/67868  
+INFO: 2023/06/01 12:12:11 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 12:12:25 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:12:26 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: DENIED Redis is running in protected mode because protected mode is enabled, no bind address was specified, no authentication password is requested to clients. In this mode connections are only accepted from the loopback interface. If you want to connect from external computers to Redis you may adopt one of the following solutions: 1) Just disable protected mode sending the command 'CONFIG SET protected-mode no' from the loopback interface by connecting to Redis from the same host the server is running, however MAKE SURE Redis is not publicly accessible from internet if you do so. Use CONFIG REWRITE to make this change permanent. 2) Alternatively you can just disable the protected mode by editing the Redis configuration file, and setting the protected mode option to 'no', and then restarting the server. 3) If you started the server manually just for testing, restart it with the '--protected-mode no' option. 4) Setup a bind address or an authentication password. NOTE: You only need to do one of the above things in order for the server to start accepting connections from the outside.
+INFO: 2023/06/01 12:12:26 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 12:12:26 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: DENIED Redis is running in protected mode because protected mode is enabled, no bind address was specified, no authentication password is requested to clients. In this mode connections are only accepted from the loopback interface. If you want to connect from external computers to Redis you may adopt one of the following solutions: 1) Just disable protected mode sending the command 'CONFIG SET protected-mode no' from the loopback interface by connecting to Redis from the same host the server is running, however MAKE SURE Redis is not publicly accessible from internet if you do so. Use CONFIG REWRITE to make this change permanent. 2) Alternatively you can just disable the protected mode by editing the Redis configuration file, and setting the protected mode option to 'no', and then restarting the server. 3) If you started the server manually just for testing, restart it with the '--protected-mode no' option. 4) Setup a bind address or an authentication password. NOTE: You only need to do one of the above things in order for the server to start accepting connections from the outside.
+INFO: 2023/06/01 12:12:26 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 12:12:26 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: DENIED Redis is running in protected mode because protected mode is enabled, no bind address was specified, no authentication password is requested to clients. In this mode connections are only accepted from the loopback interface. If you want to connect from external computers to Redis you may adopt one of the following solutions: 1) Just disable protected mode sending the command 'CONFIG SET protected-mode no' from the loopback interface by connecting to Redis from the same host the server is running, however MAKE SURE Redis is not publicly accessible from internet if you do so. Use CONFIG REWRITE to make this change permanent. 2) Alternatively you can just disable the protected mode by editing the Redis configuration file, and setting the protected mode option to 'no', and then restarting the server. 3) If you started the server manually just for testing, restart it with the '--protected-mode no' option. 4) Setup a bind address or an authentication password. NOTE: You only need to do one of the above things in order for the server to start accepting connections from the outside.
+INFO: 2023/06/01 12:12:26 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 12:12:27 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: DENIED Redis is running in protected mode because protected mode is enabled, no bind address was specified, no authentication password is requested to clients. In this mode connections are only accepted from the loopback interface. If you want to connect from external computers to Redis you may adopt one of the following solutions: 1) Just disable protected mode sending the command 'CONFIG SET protected-mode no' from the loopback interface by connecting to Redis from the same host the server is running, however MAKE SURE Redis is not publicly accessible from internet if you do so. Use CONFIG REWRITE to make this change permanent. 2) Alternatively you can just disable the protected mode by editing the Redis configuration file, and setting the protected mode option to 'no', and then restarting the server. 3) If you started the server manually just for testing, restart it with the '--protected-mode no' option. 4) Setup a bind address or an authentication password. NOTE: You only need to do one of the above things in order for the server to start accepting connections from the outside.
+INFO: 2023/06/01 12:12:27 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 12:12:27 log-service.go:52: Database error: err: DENIED Redis is running in protected mode because protected mode is enabled, no bind address was specified, no authentication password is requested to clients. In this mode connections are only accepted from the loopback interface. If you want to connect from external computers to Redis you may adopt one of the following solutions: 1) Just disable protected mode sending the command 'CONFIG SET protected-mode no' from the loopback interface by connecting to Redis from the same host the server is running, however MAKE SURE Redis is not publicly accessible from internet if you do so. Use CONFIG REWRITE to make this change permanent. 2) Alternatively you can just disable the protected mode by editing the Redis configuration file, and setting the protected mode option to 'no', and then restarting the server. 3) If you started the server manually just for testing, restart it with the '--protected-mode no' option. 4) Setup a bind address or an authentication password. NOTE: You only need to do one of the above things in order for the server to start accepting connections from the outside.
+WARN: 2023/06/01 12:12:27 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: DENIED Redis is running in protected mode because protected mode is enabled, no bind address was specified, no authentication password is requested to clients. In this mode connections are only accepted from the loopback interface. If you want to connect from external computers to Redis you may adopt one of the following solutions: 1) Just disable protected mode sending the command 'CONFIG SET protected-mode no' from the loopback interface by connecting to Redis from the same host the server is running, however MAKE SURE Redis is not publicly accessible from internet if you do so. Use CONFIG REWRITE to make this change permanent. 2) Alternatively you can just disable the protected mode by editing the Redis configuration file, and setting the protected mode option to 'no', and then restarting the server. 3) If you started the server manually just for testing, restart it with the '--protected-mode no' option. 4) Setup a bind address or an authentication password. NOTE: You only need to do one of the above things in order for the server to start accepting connections from the outside.
+WARN: 2023/06/01 12:12:59 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+INFO: 2023/06/01 12:13:00 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+INFO: 2023/06/01 12:13:00 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+INFO: 2023/06/01 12:13:00 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+INFO: 2023/06/01 12:13:00 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+INFO: 2023/06/01 12:13:00 log-service.go:32: GET 200 localhost:8000/calc/historic  
+INFO: 2023/06/01 12:13:25 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 12:13:27 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:13:32 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:13:32 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 12:13:37 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:13:37 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 12:13:42 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:13:42 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 12:13:47 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:13:47 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 12:13:52 log-service.go:52: Database error: err: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:13:52 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:17:36 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 12:17:37 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:17:38 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:6379: connect: connection refused
+INFO: 2023/06/01 12:17:38 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 12:17:39 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:6379: connect: connection refused
+INFO: 2023/06/01 12:17:39 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 12:17:40 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:6379: connect: connection refused
+INFO: 2023/06/01 12:17:40 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 12:17:40 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:6379: connect: connection refused
+INFO: 2023/06/01 12:17:40 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 12:17:41 log-service.go:52: Database error: err: dial tcp 44.202.229.219:6379: connect: connection refused
+WARN: 2023/06/01 12:17:41 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 44.202.229.219:6379: connect: connection refused
+INFO: 2023/06/01 12:17:49 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 12:17:51 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:17:56 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:17:56 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 12:18:01 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:18:01 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 12:18:06 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:18:06 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 12:18:11 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:18:11 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 12:18:16 log-service.go:52: Database error: err: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:18:16 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:18:43 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:18:48 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:18:48 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 12:18:53 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:18:53 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 12:18:58 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:18:58 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 12:19:03 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:19:03 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 12:19:08 log-service.go:52: Database error: err: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:19:08 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:20:43 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:20:48 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:20:48 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 12:20:53 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:20:53 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 12:20:58 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:20:58 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 12:21:03 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:21:03 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 12:21:08 log-service.go:52: Database error: err: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:21:08 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:22:06 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 12:22:10 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:22:15 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:22:15 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 12:22:20 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:22:20 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 12:22:25 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:22:25 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 12:22:30 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:22:30 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 12:22:35 log-service.go:52: Database error: err: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:22:35 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:27:20 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:27:25 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:27:25 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 12:27:30 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:27:30 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 12:27:35 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:27:35 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 12:27:40 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:27:40 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 12:27:45 log-service.go:52: Database error: err: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:27:45 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:32:40 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:32:45 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:32:45 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 12:32:50 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:32:50 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 12:32:55 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:32:55 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 12:33:00 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:33:00 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 12:33:05 log-service.go:52: Database error: err: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:33:05 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:33:47 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:33:52 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:33:52 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 12:33:57 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:33:57 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 12:34:02 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:34:02 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 12:34:07 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:34:07 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 12:34:12 log-service.go:52: Database error: err: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:34:12 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:35:42 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:35:47 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:35:47 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 12:35:52 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:35:52 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 12:35:57 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:35:57 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 12:36:02 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:36:02 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 12:36:07 log-service.go:52: Database error: err: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:36:07 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:37:34 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:37:40 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:37:40 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 12:37:45 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:37:45 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 12:37:50 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:37:50 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 12:37:55 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:37:55 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 12:38:00 log-service.go:52: Database error: err: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:38:00 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:41:34 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:41:39 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:41:39 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 12:41:44 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:41:44 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 12:41:49 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:41:49 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 12:41:54 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:41:54 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 12:41:59 log-service.go:52: Database error: err: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:41:59 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:42:13 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:42:18 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:42:18 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 12:42:23 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:42:23 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 12:42:28 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:42:28 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 12:42:34 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:42:34 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 12:42:39 log-service.go:52: Database error: err: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:42:39 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:43:12 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:43:17 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:43:17 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 12:43:21 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:43:22 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:43:22 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 12:43:26 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:43:26 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 12:43:31 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:43:31 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 12:43:36 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:43:36 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 12:43:41 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:43:41 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 12:43:46 log-service.go:52: Database error: err: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:43:46 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:45:41 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 12:45:52 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:45:57 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:45:57 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 12:46:02 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:46:02 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 12:46:26 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:46:32 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:46:32 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 12:46:37 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:46:37 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 12:46:42 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:46:42 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 12:46:47 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:46:47 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 12:46:52 log-service.go:52: Database error: err: dial tcp 44.202.229.219:7001: i/o timeout
+WARN: 2023/06/01 12:46:52 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:46:55 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 12:46:57 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:47:02 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:47:02 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 12:47:07 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:47:07 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+INFO: 2023/06/01 12:47:19 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 12:47:20 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:47:26 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:47:26 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+INFO: 2023/06/01 12:47:51 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 12:47:53 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:47:58 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:47:58 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+INFO: 2023/06/01 12:48:17 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 12:48:18 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:48:23 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:48:23 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 12:48:28 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:48:28 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+INFO: 2023/06/01 12:48:44 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 12:48:46 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+INFO: 2023/06/01 12:48:46 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+INFO: 2023/06/01 12:48:47 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+INFO: 2023/06/01 12:48:47 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+INFO: 2023/06/01 12:48:47 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+INFO: 2023/06/01 12:48:47 log-service.go:32: GET 200 localhost:8000/calc/historic  
+INFO: 2023/06/01 12:49:08 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 12:49:16 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:49:21 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 12:49:21 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 12:49:26 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 12:49:26 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+INFO: 2023/06/01 12:54:13 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 12:54:16 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 12:54:21 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 12:54:21 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+INFO: 2023/06/01 13:05:07 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 13:05:12 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 13:05:12 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: redis: invalid URL path: /ec2-54-234-184-165.compute-1.amazonaws.com:7000/5
+INFO: 2023/06/01 13:05:12 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 13:05:12 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: redis: invalid URL path: /ec2-54-234-184-165.compute-1.amazonaws.com:7000/5
+INFO: 2023/06/01 13:05:12 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 13:05:12 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: redis: invalid URL path: /ec2-54-234-184-165.compute-1.amazonaws.com:7000/5
+INFO: 2023/06/01 13:05:12 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 13:05:12 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: redis: invalid URL path: /ec2-54-234-184-165.compute-1.amazonaws.com:7000/5
+INFO: 2023/06/01 13:05:12 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 13:05:12 log-service.go:52: Database error: err: redis: invalid URL path: /ec2-54-234-184-165.compute-1.amazonaws.com:7000/5
+WARN: 2023/06/01 13:05:12 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: redis: invalid URL path: /ec2-54-234-184-165.compute-1.amazonaws.com:7000/5
+INFO: 2023/06/01 13:05:45 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 13:05:47 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 13:05:52 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:7001: i/o timeout
+INFO: 2023/06/01 13:05:52 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 13:05:57 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:7001: i/o timeout
+INFO: 2023/06/01 13:05:57 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 13:06:02 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:7001: i/o timeout
+INFO: 2023/06/01 13:06:02 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 13:06:07 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:7001: i/o timeout
+INFO: 2023/06/01 13:06:07 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+INFO: 2023/06/01 13:07:02 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 13:07:08 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 13:07:13 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:7001: i/o timeout
+INFO: 2023/06/01 13:07:13 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+INFO: 2023/06/01 13:08:10 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 13:08:12 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+INFO: 2023/06/01 13:08:13 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+INFO: 2023/06/01 13:08:13 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+INFO: 2023/06/01 13:08:13 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+INFO: 2023/06/01 13:08:13 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+INFO: 2023/06/01 13:08:13 log-service.go:32: GET 200 localhost:8000/calc/historic  
+INFO: 2023/06/01 13:08:36 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 13:08:38 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 13:08:43 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:1015: i/o timeout
+INFO: 2023/06/01 13:08:43 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 13:08:48 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:1015: i/o timeout
+INFO: 2023/06/01 13:08:48 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+INFO: 2023/06/01 13:20:41 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 13:20:45 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 13:20:50 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:7000: i/o timeout
+INFO: 2023/06/01 13:20:50 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 13:20:55 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:7000: i/o timeout
+INFO: 2023/06/01 13:20:55 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 13:21:00 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:7000: i/o timeout
+INFO: 2023/06/01 13:21:00 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 13:21:05 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:7000: i/o timeout
+INFO: 2023/06/01 13:21:05 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 13:21:10 log-service.go:52: Database error: err: dial tcp 54.234.184.165:7000: i/o timeout
+WARN: 2023/06/01 13:21:10 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 54.234.184.165:7000: i/o timeout
+WARN: 2023/06/01 13:21:13 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 13:21:18 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:7000: i/o timeout
+INFO: 2023/06/01 13:21:18 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 13:21:23 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:7000: i/o timeout
+INFO: 2023/06/01 13:21:23 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+INFO: 2023/06/01 13:21:44 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 13:21:46 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 13:21:47 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:6379: connect: connection refused
+INFO: 2023/06/01 13:21:47 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 13:21:48 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:6379: connect: connection refused
+INFO: 2023/06/01 13:21:48 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 13:21:48 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:6379: connect: connection refused
+INFO: 2023/06/01 13:21:48 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 13:21:49 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:6379: connect: connection refused
+INFO: 2023/06/01 13:21:49 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 13:21:50 log-service.go:52: Database error: err: dial tcp 54.234.184.165:6379: connect: connection refused
+WARN: 2023/06/01 13:21:50 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 54.234.184.165:6379: connect: connection refused
+WARN: 2023/06/01 13:25:11 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 13:25:12 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:6379: connect: connection refused
+INFO: 2023/06/01 13:25:12 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 13:25:13 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:6379: connect: connection refused
+INFO: 2023/06/01 13:25:13 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 13:25:14 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:6379: connect: connection refused
+INFO: 2023/06/01 13:25:14 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 13:25:14 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:6379: connect: connection refused
+INFO: 2023/06/01 13:25:14 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 13:25:15 log-service.go:52: Database error: err: dial tcp 54.234.184.165:6379: connect: connection refused
+WARN: 2023/06/01 13:25:15 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 54.234.184.165:6379: connect: connection refused
+INFO: 2023/06/01 13:25:19 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 13:25:22 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 13:25:27 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:7000: i/o timeout
+INFO: 2023/06/01 13:25:27 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 13:25:32 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:7000: i/o timeout
+INFO: 2023/06/01 13:25:32 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+INFO: 2023/06/01 13:27:19 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 13:27:21 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 13:27:26 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:7000: i/o timeout
+INFO: 2023/06/01 13:27:26 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 13:27:31 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:7000: i/o timeout
+INFO: 2023/06/01 13:27:31 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 13:27:36 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:7000: i/o timeout
+INFO: 2023/06/01 13:27:36 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 13:27:55 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 13:28:00 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:7000: i/o timeout
+INFO: 2023/06/01 13:28:00 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 13:28:05 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 54.234.184.165:7000: i/o timeout
+INFO: 2023/06/01 13:28:05 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+INFO: 2023/06/01 13:30:09 log-service.go:32: Application started. Running at port 8000
+INFO: 2023/06/01 13:30:35 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 13:30:38 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 13:30:43 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 13:30:43 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 13:30:48 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 13:30:48 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 13:30:53 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 13:30:53 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 13:30:58 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 13:30:58 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 13:31:03 log-service.go:52: Database error: err: dial tcp 44.202.229.219:7000: i/o timeout
+WARN: 2023/06/01 13:31:03 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 44.202.229.219:7000: i/o timeout
+WARN: 2023/06/01 14:19:06 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 14:19:11 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 14:19:11 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 14:19:16 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 14:19:16 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 14:19:21 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 14:19:21 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 14:19:26 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 14:19:26 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 14:19:31 log-service.go:52: Database error: err: dial tcp 44.202.229.219:7000: i/o timeout
+WARN: 2023/06/01 14:19:31 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 15:41:22 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 15:41:24 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 15:41:29 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 15:41:29 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 15:41:34 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 15:41:34 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 15:41:39 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 15:41:39 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+INFO: 2023/06/01 15:43:08 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 15:43:11 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 15:43:16 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 15:43:16 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+INFO: 2023/06/01 15:50:50 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 15:50:54 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 15:50:59 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 15:50:59 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 15:51:04 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 15:51:04 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 15:51:09 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 15:51:09 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 15:51:14 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 15:51:14 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 15:51:19 log-service.go:52: Database error: err: dial tcp 44.202.229.219:7000: i/o timeout
+WARN: 2023/06/01 15:51:19 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 44.202.229.219:7000: i/o timeout
+WARN: 2023/06/01 15:52:23 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 15:52:28 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 15:52:28 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 15:52:33 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 15:52:33 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/06/01 15:52:38 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 15:52:38 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/06/01 15:52:44 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 15:52:44 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/06/01 15:52:49 log-service.go:52: Database error: err: dial tcp 44.202.229.219:7000: i/o timeout
+WARN: 2023/06/01 15:52:49 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp 44.202.229.219:7000: i/o timeout
+WARN: 2023/06/01 15:54:07 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 15:54:12 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 15:54:12 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/06/01 15:54:17 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7000: i/o timeout
+INFO: 2023/06/01 15:54:17 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+INFO: 2023/06/01 15:55:22 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 15:55:32 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 15:55:37 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 15:55:37 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+INFO: 2023/06/01 16:03:03 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/06/01 16:03:06 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/06/01 16:03:11 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp 44.202.229.219:7001: i/o timeout
+INFO: 2023/06/01 16:03:11 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+INFO: 2023/07/13 14:09:44 log-service.go:32: Application started. Running at port 8000
+FATAL: 2023/07/13 14:09:44 log-service.go:62: Error on starting application: err: listen tcp :8000: bind: address already in use
+INFO: 2023/07/13 14:09:58 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/07/13 14:10:07 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+WARN: 2023/07/13 14:10:07 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/6 An error occurred on save calculator historic: dial tcp: address nlb-redis-cluster-devops-73fb877c25941901.elb.us-east-1.amazonaws.com6379: missing port in address
+INFO: 2023/07/13 14:10:07 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+WARN: 2023/07/13 14:10:07 log-service.go:42: GET 400 127.0.0.1:8000/calc/mult/6/6 An error occurred on save calculator historic: dial tcp: address nlb-redis-cluster-devops-73fb877c25941901.elb.us-east-1.amazonaws.com6379: missing port in address
+INFO: 2023/07/13 14:10:07 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+WARN: 2023/07/13 14:10:07 log-service.go:42: GET 400 127.0.0.1:8000/calc/sub/6/6 An error occurred on save calculator historic: dial tcp: address nlb-redis-cluster-devops-73fb877c25941901.elb.us-east-1.amazonaws.com6379: missing port in address
+INFO: 2023/07/13 14:10:07 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+WARN: 2023/07/13 14:10:07 log-service.go:42: GET 400 127.0.0.1:8000/calc/sum/6/6 An error occurred on save calculator historic: dial tcp: address nlb-redis-cluster-devops-73fb877c25941901.elb.us-east-1.amazonaws.com6379: missing port in address
+INFO: 2023/07/13 14:10:07 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+ERROR: 2023/07/13 14:10:07 log-service.go:52: Database error: err: dial tcp: address nlb-redis-cluster-devops-73fb877c25941901.elb.us-east-1.amazonaws.com6379: missing port in address
+WARN: 2023/07/13 14:10:07 log-service.go:42: GET 400 localhost:8000/calc/historic Error on getting Historic: dial tcp: address nlb-redis-cluster-devops-73fb877c25941901.elb.us-east-1.amazonaws.com6379: missing port in address
+INFO: 2023/07/13 14:10:40 log-service.go:32: Application started. Running at port 8000
+WARN: 2023/07/13 14:10:43 log-service.go:42: GET 400 127.0.0.1:8000/calc/div/6/0 Mathematical indeterminacy: division by 0: %!s(<nil>)
+INFO: 2023/07/13 14:10:44 log-service.go:32: GET 200 127.0.0.1:8000/calc/div/6/6  
+INFO: 2023/07/13 14:10:44 log-service.go:32: GET 200 127.0.0.1:8000/calc/mult/6/6  
+INFO: 2023/07/13 14:10:45 log-service.go:32: GET 200 127.0.0.1:8000/calc/sub/6/6  
+INFO: 2023/07/13 14:10:45 log-service.go:32: GET 200 127.0.0.1:8000/calc/sum/6/6  
+INFO: 2023/07/13 14:10:45 log-service.go:32: GET 200 localhost:8000/calc/historic  

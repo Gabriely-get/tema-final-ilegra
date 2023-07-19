@@ -1,0 +1,18 @@
+---
+
+- name: Creating file zookeper service
+  copy:
+    dest: "calc.service"
+    content: |
+      [Unit]
+      Description=Calculator go application
+
+      [Service]
+      Type=simple
+      Restart=always
+      RestartSec=5s
+      WorkingDirectory=/home/ec2-user/app
+      ExecStart=/home/ec2-user/app/main.go
+
+      [Install]
+      WantedBy=multi-user.target
