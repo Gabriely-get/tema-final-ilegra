@@ -2,17 +2,24 @@
 
 - name: Creating file zookeper service
   copy:
-    dest: "/lib/systemd/system/calc.service"
+    dest: "/lib/systemd/system/calculator.service"
     content: |
       [Unit]
       Description=Calculator go application
-
+      
       [Service]
-      Type=simple
-      Restart=always
-      RestartSec=5s
+      User=ec2-user
       WorkingDirectory=/home/ec2-user/app
-      ExecStart=/home/ec2-user/app/main.go
-
+      ExecStart=/bin/bash -c 'cd /home/ec2-user/app && go run .'
+      
       [Install]
       WantedBy=multi-user.target
+      
+- name: Reload Systemd
+  ansible.builtin.systemd:
+    daemon_reload: true
+
+- name: Make sure a service unit is running
+  ansible.builtin.systemd:
+    state: started
+    name: calculator
