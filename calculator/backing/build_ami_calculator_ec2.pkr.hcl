@@ -44,13 +44,11 @@ build {
     script = "./calculator/backing/install-ansible.sh"
   }
 
-  provisioner "ansible" {
-    extra_arguments     = [
-      "--ssh-extra-args", "'-o PubkeyAcceptedKeyTypes=+ssh-rsa -o HostkeyAlgorithms=+ssh-rsa'"
+  provisioner "shell" {
+    inline = [
+      "cd /home/ec2-user/playbooks",
+      "ansible-playbook playbook.yml"
     ]
-  
-    playbook_file = "/home/ec2-user/playbooks/playbook.yml"
   }
-
 
 }
