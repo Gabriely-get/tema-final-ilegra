@@ -14,7 +14,7 @@
     - name: Set password in redis.conf
       ansible.builtin.lineinfile:
         path: /etc/redis.conf
-        regexp: '^(^# requirepass)'
+        regexp: '^(^requirepass)'
         line: requirepass {{ requirepassmain }}
 
     - name: Appendonly yes in redis.conf
