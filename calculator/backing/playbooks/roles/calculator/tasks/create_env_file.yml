@@ -1,19 +1,5 @@
 ---
 
-- name: install python2-pip
-  yum3:
-    name: python2-pip
-    state: present
-    
-- name: Upgrade pip
-  pip: name=pip state=latest
-  tags:
-    - packages
-        
-- name: Ensure botocore and boto3 modules are installed
-  pip:
-    name: [ "boto3", "botocore"]
-
 - name: Get elb info
   elb_application_lb_info:
     access_key: "{{ aws_access_key }}"
