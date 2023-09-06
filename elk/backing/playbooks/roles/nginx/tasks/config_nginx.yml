@@ -1,0 +1,19 @@
+---
+
+- name: Set proxy for elasticseach port
+  lineinfile:
+    path: /etc/nginx/nginx.conf
+    regex: '}(?!.*})'
+    line : |
+        server {
+          listen 30092;
+          server_name elasticsearch.local;
+
+          location / {
+            proxy_set_header Host            elasticsearch.local;
+            proxy_set_header X-Forwarded-For $remote_addr;
+            proxy_pass http://elasticsearch.local;
+          }
+        }
+
+        }

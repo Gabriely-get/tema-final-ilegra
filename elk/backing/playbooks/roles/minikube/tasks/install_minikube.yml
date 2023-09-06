@@ -1,0 +1,41 @@
+---
+
+- name: Get minikube
+  ansible.builtin.get_url: 
+    url: https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+    dest: /tmp/
+
+- name: Install minikube
+  command: install /tmp/minikube-linux-amd64 /usr/local/bin/minikube
+  become: yes
+
+- name: Creating file minikube service
+  copy:
+    dest: "/usr/lib/systemd/system/minikube.service"
+    content: |
+      [Unit]
+      Description=minikube
+      After=network-online.target firewalld.service containerd.service docker.service
+      Wants=network-online.target docker.service
+      Requires=docker.socket containerd.service docker.service
+
+      [Service]
+      Type=oneshot
+      RemainAfterExit=yes
+      WorkingDirectory=/root
+      ExecStart=/usr/local/bin/minikube start 
+      ExecStop=/usr/local/bin/minikube stop
+      User=ec2-user
+      Group=ec2-user
+
+      [Install]
+      WantedBy=multi-user.target
+  
+- name: Reload daemon
+  ansible.builtin.systemd:
+    daemon_reload: true
+
+- name: Enable minikube
+  ansible.builtin.systemd:
+    enabled: true
+    name: minikube

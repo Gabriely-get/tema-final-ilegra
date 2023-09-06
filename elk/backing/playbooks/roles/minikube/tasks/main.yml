@@ -1,0 +1,7 @@
+---
+
+- name: Include Minikube
+  include_tasks: install_minikube.yml
+
+- name: Include Kubectl
+  include_tasks: install_kubectl.yml
