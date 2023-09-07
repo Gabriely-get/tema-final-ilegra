@@ -8,12 +8,12 @@ packer {
 }
 
 source "amazon-ebs" "amazon_linux" {
-  ami_name      = "ami-elk-2"
+  ami_name      = "ami-elk"
   source_ami    = "ami-03c7d01cf4dedc891"
   instance_type = "t2.medium"
   region        = "us-east-1"
   tags = {
-    Name             = "ami-elk-2"
+    Name             = "ami-elk"
     Owner            = "Gabriely-get"
     Project          = "tema-final"
     EC2_ECONOMIZATOR = "TRUE"
