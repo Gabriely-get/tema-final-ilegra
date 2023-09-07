@@ -31,17 +31,17 @@ build {
   ]
 
   provisioner "file" {
-    source      = "./playbooks"
+    source      = "./elk/backing/playbooks"
     destination = "/home/ec2-user"
   }
 
   provisioner "file" {
-    source      = "./minikube"
+    source      = "./elk/backing/minikube"
     destination = "/home/ec2-user"
   }
 
   provisioner "shell" {
-    script = "./install-ansible.sh"
+    script = "./elk/backing/install-ansible.sh"
   }
 
   provisioner "shell" {
