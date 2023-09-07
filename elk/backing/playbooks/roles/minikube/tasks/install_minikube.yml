@@ -23,7 +23,7 @@
       Type=oneshot
       RemainAfterExit=yes
       WorkingDirectory=/root
-      ExecStart=/usr/local/bin/minikube start 
+      ExecStart=/home/ec2-user/minikube/minikube.sh
       ExecStop=/usr/local/bin/minikube stop
       User=ec2-user
       Group=ec2-user
@@ -39,3 +39,6 @@
   ansible.builtin.systemd:
     enabled: true
     name: minikube
+
+- name: Increase virtual memory
+  shell: sudo sysctl -w vm.max_map_count=262144

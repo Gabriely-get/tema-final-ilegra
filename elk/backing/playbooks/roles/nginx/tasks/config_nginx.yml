@@ -17,3 +17,8 @@
         }
 
         }
+
+- name: Set host for elasticseach
+  lineinfile:
+    path: /etc/hosts
+    line: 192.168.49.2 elasticsearch.local
