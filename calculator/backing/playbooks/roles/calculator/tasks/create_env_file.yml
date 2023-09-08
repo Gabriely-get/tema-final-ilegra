@@ -13,22 +13,4 @@
 - name: Ensure botocore and boto3 modules are installed
   pip:
     name: [ "boto3", "botocore"]
-    
-- name: Get elb info
-  elb_application_lb_info:
-    access_key: "{{ aws_access_key }}"
-    secret_key: "{{ aws_secret_key }}"
-    security_token: "{{ security_token }}"
-    region: "{{ aws_region }}"
-    names: nlb-redis-cluster-devops
-  register: elb_info
 
-- ansible.builtin.debug:
-    msg: "{{ elb_info.load_balancers[0].dns_name }}"
-
-- name: Create environment file
-  copy:
-    dest: "/home/ec2-user/app/local.env"
-    content: |
-      LB_URL={{ elb_info.load_balancers[0].dns_name }}
-      PASS={{ requirepass }}
