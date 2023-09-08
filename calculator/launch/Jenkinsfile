@@ -17,15 +17,13 @@ pipeline {
         }
         stage('Terraform Apply') {
             steps {
-                sh 'terraform -chdir=redis/launch init'
-                sh 'terraform -chdir=redis/launch apply  -auto-approve'
-                sh 'terraform -chdir=redis/launch output > output.txt'
+                sh 'terraform -chdir=calculator/launch init'
+                sh 'terraform -chdir=calculator/launch apply  -auto-approve'
             }
         }
-        stage('Configure Redis files for cluster') {
+        stage('Configure Calculator') {
             steps {
-                sh 'ansible-playbook redis/backing/playbooks/edit_main.yml -e "aws_access_key=$AWS_ACCESS_KEY" -e "aws_secret_key=$AWS_SECRET_KEY" -e "security_token=$AWS_SESSION_TOKEN" -e "aws_region=${AWS_REGION}" -e "requirepassreplica=${PASS_REPLICA}" -e "requirepassmain=${PASS_MAIN}" -e "kp_full_path=/home/ilegra/Downloads/kp-jt-devops-gabriely-willian.pem"'
-                sh 'ansible-playbook redis/backing/playbooks/edit_replica.yml -e "aws_access_key=$AWS_ACCESS_KEY" -e "aws_secret_key=$AWS_SECRET_KEY" -e "security_token=$AWS_SESSION_TOKEN" -e "aws_region=${AWS_REGION}" -e "requirepassreplica=${PASS_REPLICA}" -e "requirepassmain=${PASS_MAIN}" -e "kp_full_path=/home/ilegra/Downloads/kp-jt-devops-gabriely-willian.pem"'
+                sh 'ansible-playbook calculator/launch/playbooks/playbook_2.yml -e "aws_access_key=$AWS_ACCESS_KEY" -e "aws_secret_key=$AWS_SECRET_KEY" -e "security_token=$AWS_SESSION_TOKEN" -e "aws_region=${AWS_REGION}" -e "requirepass=${PASS_MAIN}" -e "kp_full_path=/home/ilegra/Downloads/kp-jt-devops-gabriely-willian.pem"'
             }
         }
     }
