@@ -21,10 +21,5 @@ pipeline {
                 sh 'terraform -chdir=elk/launch apply  -auto-approve'
             }
         }
-        stage('Run config files for ELK stack') {
-            steps {
-                sh 'ansible-playbook elk/backing/playbooks/playbook_ec2.yml -e "aws_access_key=$AWS_ACCESS_KEY" -e "aws_secret_key=$AWS_SECRET_KEY" -e "security_token=$AWS_SESSION_TOKEN" -e "aws_region=${AWS_REGION}" -e "kp_full_path=/home/ilegra/Downloads/kp-jt-devops-gabriely-willian.pem"'
-            }
-        }
     }
 }
