@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Configure Calculator') {
             steps {
-                sh 'ansible-playbook calculator/launch/playbooks/playbook_2.yml -e "aws_access_key=$AWS_ACCESS_KEY" -e "aws_secret_key=$AWS_SECRET_KEY" -e "security_token=$AWS_SESSION_TOKEN" -e "aws_region=${AWS_REGION}" -e "requirepass=${PASS_MAIN}" -e "kp_full_path=/home/ilegra/Downloads/kp-jt-devops-gabriely-willian.pem"'
+                sh 'ansible-playbook calculator/backing/playbooks/playbook_2.yml -e "aws_access_key=$AWS_ACCESS_KEY" -e "aws_secret_key=$AWS_SECRET_KEY" -e "security_token=$AWS_SESSION_TOKEN" -e "aws_region=${AWS_REGION}" -e "requirepass=${PASS_MAIN}" -e "kp_full_path=/home/ilegra/Downloads/kp-jt-devops-gabriely-willian.pem"'
             }
         }
     }
