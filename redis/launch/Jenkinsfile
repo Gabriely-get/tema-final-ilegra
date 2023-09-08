@@ -19,7 +19,6 @@ pipeline {
             steps {
                 sh 'terraform -chdir=redis/launch init'
                 sh 'terraform -chdir=redis/launch apply  -auto-approve'
-                sh 'terraform -chdir=redis/launch output > output.txt'
             }
         }
         stage('Configure Redis files for cluster') {
