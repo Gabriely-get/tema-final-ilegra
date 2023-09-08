@@ -42,6 +42,16 @@ resource "aws_launch_template" "elk" {
   vpc_security_group_ids = var.get_security_groups
   instance_type          = "t2.medium"
 
+  block_device_mappings {
+    device_name = "/dev/xvda"
+
+    ebs {
+      volume_size           = 12
+      encrypted             = true
+      delete_on_termination = true
+    }
+  }
+
   placement {
     availability_zone = var.get_availability_zones[0]
   }
