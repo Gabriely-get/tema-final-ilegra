@@ -1,0 +1,30 @@
+pipeline {
+    environment { 
+        AWS_ACCESS_KEY = credentials('aws_access_key')
+        AWS_SECRET_KEY = credentials('aws_secret_key')
+        AWS_SESSION_TOKEN = credentials('aws_session_token')
+    }
+
+    agent any
+
+    stages {
+        stage('Config Environment Credential') {
+            steps {
+                sh 'export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY'
+                sh 'export AWS_SECRET_ACCESS_KEY="$AWS_SECRET_KEY"'
+                sh 'export AWS_SESSION_TOKEN="$AWS_SESSION_TOKEN"'
+            }
+        }
+        stage('Terraform Apply') {
+            steps {
+                sh 'terraform -chdir=elk/launch init'
+                sh 'terraform -chdir=elk/launch apply  -auto-approve'
+            }
+        }
+        stage('Run config files for ELK stack') {
+            steps {
+                sh 'ansible-playbook elk/backing/playbooks/playbook_ec2.yml -e "aws_access_key=$AWS_ACCESS_KEY" -e "aws_secret_key=$AWS_SECRET_KEY" -e "security_token=$AWS_SESSION_TOKEN" -e "aws_region=${AWS_REGION}" -e "kp_full_path=/home/ilegra/Downloads/kp-jt-devops-gabriely-willian.pem"'
+            }
+        }
+    }
+}
