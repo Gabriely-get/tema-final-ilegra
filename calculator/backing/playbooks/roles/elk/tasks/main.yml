@@ -1,0 +1,7 @@
+---
+
+- name: Include Install ES
+  include_tasks: install_elasticsearch.yml
+
+- name: Include Install Metricbeat
+  include_tasks: install_metricbeat.yml

@@ -1,0 +1,8 @@
+---
+
+- name: Install metricbeat
+  package:
+    name: metricbeat
+    state: latest
+    update_cache: yes
+  become: yes

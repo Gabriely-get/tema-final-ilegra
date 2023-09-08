@@ -1,0 +1,59 @@
+---
+
+- name: Install java
+  package:
+    name:
+      - java-17-amazon-corretto-devel
+    state: latest
+    update_cache: true
+  become: yes
+
+- name: Create elastic repo
+  copy:
+    dest: "/etc/yum.repos.d/elasticsearch.repo"
+    content: |
+      [elasticsearch-8.x]
+      name=Elasticsearch repository for 8.x packages
+      baseurl=https://artifacts.elastic.co/packages/8.x/yum
+      gpgcheck=1
+      gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+      enabled=1
+      autorefresh=1
+      type=rpm-md
+
+- name: Import GPG key
+  command: rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
+  become: yes
+
+- name: YUM clean 
+  command: yum clean all
+  become: yes
+
+- name: YUM makecache
+  command: yum makecache
+  become: yes
+
+- name: Install elasticsearch
+  package:
+    name: elasticsearch
+    state: latest
+    update_cache: yes
+  become: yes
+
+- name: Set host 0.0.0.0
+  ansible.builtin.lineinfile:
+    path: /etc/elasticsearch/elasticsearch.yml
+    regexp: '^(^network.host:)'
+    line: "network.host: 0.0.0.0"
+
+- name: Set port
+  ansible.builtin.lineinfile:
+    path: /etc/elasticsearch/elasticsearch.yml
+    regexp: '^(^http.port:)'
+    line: "http.port: 9200"
+
+- name: Disable xpack security
+  ansible.builtin.lineinfile:
+    path: /etc/elasticsearch/elasticsearch.yml
+    regexp: '^(^xpack.security.enabled:)'
+    line: "xpack.security.enabled: false"
