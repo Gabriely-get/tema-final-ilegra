@@ -30,7 +30,7 @@ data "aws_ami" "calculator-ami" {
 
   filter {
     name   = "name"
-    values = ["ami-go-calculator-test"]
+    values = ["ami-go-calculator"]
   }
 
 }
