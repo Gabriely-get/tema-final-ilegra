@@ -15,6 +15,7 @@ Create a security group with the following Inbound rules and replace the value i
 - 6379
 - 8000
 - 30092
+- 30056
 
 ### Jenkins
 
