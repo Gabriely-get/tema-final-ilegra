@@ -40,13 +40,13 @@ resource "aws_launch_template" "elk" {
   image_id               = data.aws_ami.elk-ami.image_id
   key_name               = var.get_kp
   vpc_security_group_ids = var.get_security_groups
-  instance_type          = "t2.medium"
+  instance_type          = "t2.large"
 
   block_device_mappings {
     device_name = "/dev/xvda"
 
     ebs {
-      volume_size           = 12
+      volume_size           = 10
       encrypted             = true
       delete_on_termination = true
     }
