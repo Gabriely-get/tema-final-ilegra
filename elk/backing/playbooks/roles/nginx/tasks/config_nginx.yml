@@ -16,9 +16,20 @@
           }
         }
 
+        server {
+          listen 30056;
+          server_name kibana.com;
+
+          location / {
+            proxy_set_header Host            kibana.com;
+            proxy_set_header X-Forwarded-For $remote_addr;
+            proxy_pass http://192.168.49.2:30056;
+          }
+        }
+
         }
 
 - name: Set host for elasticseach
   lineinfile:
     path: /etc/hosts
-    line: 192.168.49.2 elasticsearch.local
+    line: 192.168.49.2 elasticsearch.local kibana.com
