@@ -12,5 +12,7 @@ minikube kubectl -- apply -f /home/ec2-user/minikube/elasticsearch-ingress.yaml
 minikube kubectl -- apply -f /home/ec2-user/minikube/kibana.yaml
 minikube kubectl -- apply -f /home/ec2-user/minikube/kibana-ingress.yaml
 
+minikube kubectl -- apply -f /home/ec2-user/minikube/apm.yaml
+
 sudo systemctl enable nginx
 sudo systemctl restart nginx
