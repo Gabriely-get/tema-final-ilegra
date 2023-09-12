@@ -43,4 +43,4 @@
 - name: Set host for elasticseach and kibana
   lineinfile:
     path: /etc/hosts
-    line: 192.168.49.2 elasticsearch.local kibana.com
+    line: 192.168.49.2 elasticsearch.local kibana.com apm.com
