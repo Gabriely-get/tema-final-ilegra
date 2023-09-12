@@ -1,7 +1,7 @@
 #!/bin/bash
 
 minikube delete
-minikube start --static-ip 192.168.49.2 --memory 3000
+minikube start --static-ip 192.168.49.2 --memory 4000
 minikube addons enable ingress
 
 sleep 60s
