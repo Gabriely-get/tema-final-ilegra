@@ -12,3 +12,31 @@
     name: metricbeat
     state: started
     enabled: yes
+
+- name: Update metricbeat file
+  copy:
+    dest: "/etc/metricbeat/metricbeat.yml"
+    content: |
+      metricbeat.modules:
+      - module: system
+        metricsets:
+          - cpu
+          - filesystem
+          - memory
+          - network
+          - process
+        enabled: true
+        period: 10s
+        processes: ['.*']
+
+        
+
+      
+- name: Reload Systemd
+  ansible.builtin.systemd:
+    daemon_reload: true
+
+- name: Make sure a service unit is running
+  ansible.builtin.systemd:
+    state: started
+    name: calculator
