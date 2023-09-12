@@ -58,7 +58,7 @@
     regexp: '^(^xpack.security.enabled:)'
     line: "xpack.security.enabled: false"
 
-- name: Start elasticsearch
+- name: Enable elasticsearch
   service:
     name: elasticsearch
     enabled: yes
@@ -68,4 +68,5 @@
   service:
     name: elasticsearch
     state: started
+    enabled: yes
   become: yes
