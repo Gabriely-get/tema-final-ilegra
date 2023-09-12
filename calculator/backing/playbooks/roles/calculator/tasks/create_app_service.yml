@@ -21,5 +21,5 @@
 
 - name: Make sure a service unit is running
   ansible.builtin.systemd:
-    state: started
+    enabled: yes
     name: calculator
