@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apm-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apm-server
+  template:
+    metadata:
+      labels:
+        app: apm-server
+    spec:
+      containers:
+      - name: apm-server
+        image: docker.elastic.co/apm/apm-server:7.16.2
+        ports:
+        - containerPort: 8200
+        env:
+        - name: output.elasticsearch.hosts
+          value: "192.168.49.2:30092"  # Use the DNS name of the Elasticsearch service
+        - name: output.elasticsearch.enabled
+          value: "true"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: apm-server-service
+spec:
+  selector:
+    app: apm-server
+  ports:
+    - protocol: TCP
+      port: 8200
+      targetPort: 8200
+      nodePort: 30082
+  type: NodePort
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: apm-server-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: apm.com  # Replace with your desired hostname
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: apm-server-service
+            port:
+              number: 8200
