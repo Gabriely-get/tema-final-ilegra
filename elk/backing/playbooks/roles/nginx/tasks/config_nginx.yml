@@ -1,6 +1,6 @@
 ---
 
-- name: Set proxy for elasticseach port
+- name: Set proxy for elasticseach and kibana port
   lineinfile:
     path: /etc/nginx/nginx.conf
     regex: '}(?!.*})'
@@ -29,7 +29,7 @@
 
         }
 
-- name: Set host for elasticseach
+- name: Set host for elasticseach and kibana
   lineinfile:
     path: /etc/hosts
     line: 192.168.49.2 elasticsearch.local kibana.com
