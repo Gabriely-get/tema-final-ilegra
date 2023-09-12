@@ -6,3 +6,8 @@
     state: latest
     update_cache: yes
   become: yes
+
+- name: Start metricbeat
+  service:
+    name: metricbeat
+    state: started
