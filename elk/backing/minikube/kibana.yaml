@@ -1,7 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kibana
+  name: kibana-deployment
+  labels:
+    app: kibana
 spec:
   replicas: 1
   selector:
@@ -14,32 +16,28 @@ spec:
     spec:
       containers:
       - name: kibana
-        image: docker.elastic.co/kibana/kibana:7.16.2
+        image: docker.elastic.co/kibana/kibana:7.16.3
         ports:
         - containerPort: 5601
-          name: rest
-        env: 
-        - name: elasticsearch.hosts
+          name: ui
+        env:
+        - name: ELASTICSEARCH_HOSTS
           value: http://192.168.49.2:30092
-        - name: server.host
-          value: 0.0.0.0
-        - name: monitoring.ui.container.elasticsearch.enabled
-          value: true
-        - name: monitoring.ui.container.logstash.enabled
-          value: true
+        - name: XPACK_SECURITY_ENABLED
+          value: "false"
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: kibana-nodeport
+  name: kibana
   labels:
-    app: kibana
+    service: kibana
 spec:
   type: NodePort
   ports:
   - port: 5601
     targetPort: 5601
     nodePort: 30056
-    name: rest
+    name: ui
   selector:
     app: kibana
