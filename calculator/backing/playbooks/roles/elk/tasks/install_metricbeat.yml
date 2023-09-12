@@ -29,7 +29,13 @@
         period: 10s
         processes: ['.*']
 
-        
+      output.elasticsearch:
+      hosts: ["http://34.236.151.175:30092"]
+      timeout: 10
+      
+      setup.kibana:
+        host: "http://34.236.151.175:30056"
+
 
       
 - name: Reload Systemd
