@@ -61,5 +61,11 @@
 - name: Start elasticsearch
   service:
     name: elasticsearch
-    state: started
     enabled: yes
+  become: yes
+
+- name: Start elasticsearch
+  service:
+    name: elasticsearch
+    state: started
+  become: yes
