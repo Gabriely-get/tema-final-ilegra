@@ -45,4 +45,4 @@
 - name: Make sure a service unit is running
   ansible.builtin.systemd:
     enabled: yes
-    name: calculator
+    name: metricbeat
